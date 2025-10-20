@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WatchMint - Earn by Completing Tasks</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>💸 WatchMint</h1>
+    <p>Watch • Play • Refer • Earn Points</p>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>Welcome to WatchMint</h2>
+      <p>Complete small tasks like watching videos, answering quick quizzes, and referring friends — earn points and redeem rewards!</p>
+      <button id="startBtn">Start Earning</button>
+    </section>
+
+    <section id="tasks" class="hidden">
+      <h2>Available Tasks</h2>
+      <div class="task">
+        <h3>🎬 Watch a short video</h3>
+        <p>Earn 10 points for watching a 30-second video.</p>
+        <button onclick="completeTask(10)">Complete Task</button>
+      </div>
+
+      <div class="task">
+        <h3>🧠 Quick Quiz</h3>
+        <p>Answer 3 questions correctly and earn 20 points.</p>
+        <button onclick="startQuiz()">Start Quiz</button>
+      </div>
+
+      <div class="task">
+        <h3>👥 Refer a Friend</h3>
+        <p>Invite your friends and earn 50 points for each signup.</p>
+        <button id="copyReferral">Copy Referral Link</button>
+        <p id="refLink" style="display:none"></p>
+      </div>
+
+      <div id="pointsDisplay">
+        <h3>Your Points: <span id="points">0</span></h3>
+      </div>
+    </section>
+
+    <!-- Simple quiz modal -->
+    <div id="quizModal" class="hidden">
+      <div class="quizContent">
+        <h3>Quick Quiz</h3>
+        <div id="quizQuestion"></div>
+        <div id="quizAnswers"></div>
+        <button id="quizNext" style="display:none">Next</button>
+        <button id="quizClose">Close</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 WatchMint | Earn responsibly | <a href="#">Privacy Policy</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

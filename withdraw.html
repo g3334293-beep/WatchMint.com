@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WatchMint — Withdraw Request</title>
+  <link rel="stylesheet" href="withdraw.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>WatchMint</h1>
+      <p>Withdraw Request — JazzCash / EasyPaisa</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Submit a Withdrawal Request</h2>
+        <form id="withdrawForm">
+          <label for="username">Full name</label>
+          <input id="username" name="username" type="text" required minlength="3" placeholder="Your full name">
+
+          <label for="email">Email (for notifications)</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+          <label for="method">Payment Method</label>
+          <select id="method" name="method" required>
+            <option value="">Select</option>
+            <option value="jazzcash">JazzCash</option>
+            <option value="easypaisa">EasyPaisa</option>
+          </select>
+
+          <label for="mobile">Mobile Number (linked to wallet)</label>
+          <input id="mobile" name="mobile" type="tel" pattern="\+?\d{9,15}" placeholder="+92XXXXXXXXXX" required>
+
+          <label for="amount">Amount to withdraw (PKR)</label>
+          <input id="amount" name="amount" type="number" min="100" step="1" required placeholder="e.g. 500">
+
+          <label for="notes">Notes (optional)</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Any extra info (e.g. preferred payout time)"></textarea>
+
+          <div class="checkbox-row">
+            <input id="agree" name="agree" type="checkbox" required>
+            <label for="agree" class="small">I confirm this account belongs to me. I accept WatchMint's withdrawal terms.</label>
+          </div>
+
+          <div class="buttons">
+            <button type="submit">Submit Request</button>
+            <button type="button" id="exportBtn">Export Requests (Admin)</button>
+            <button type="button" id="clearBtn">Clear Saved Requests</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card" id="requestsCard">
+        <h2>Pending Requests (Local)</h2>
+        <p class="muted">Requests are stored locally in the browser. Admin can export a CSV to process payouts manually.</p>
+        <div id="requestsList">No requests yet.</div>
+      </section>
+
+      <section class="card info">
+        <h3>Important Notes</h3>
+        <ul>
+          <li>GitHub Pages is static — this page <strong>does not</strong> send money automatically. Use the exported CSV to process payouts manually from your JazzCash/EasyPaisa merchant or agent.</li>
+          <li>For automated payouts you must integrate a server-side solution and use official payment APIs (merchant account) and implement KYC & security.</li>
+          <li>Minimum withdrawal amount is set to PKR 100 in this template. Change in <code>withdraw.js</code> if needed.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 WatchMint — Withdraw Requests</p>
+    </footer>
+  </div>
+
+  <script src="withdraw.js"></script>
+</body>
+</html>
